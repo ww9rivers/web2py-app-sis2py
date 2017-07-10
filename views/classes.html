@@ -1,0 +1,20 @@
+{{
+left_sidebar_enabled=False
+right_sidebar_enabled=True
+}}
+{{extend 'layout.html'}}
+{{if "pagedata" in globals():}}
+{{block page_data}}
+{{response.write('<!-- Session data begin -->', escape=False)}}
+{{=pagedata}}
+{{response.write('<!-- Session data end -->', escape=False)}}
+{{end}}
+{{pass}}
+
+<h1>{{=main_header}}</h1>
+
+{{=main_content}}
+
+{{block left_sidebar}}New Left Sidebar Content{{end}}
+{{block right_sidebar}}{{=rsidebar}}
+{{end}}
